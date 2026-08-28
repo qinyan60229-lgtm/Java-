@@ -7,6 +7,10 @@ public class Brad22 {
 		Brad221 obj2 = new Brad222();
 		Brad221 obj3 = new Brad223();
 		go(obj2); go(obj3);
+//		obj2.m1();
+//		obj2.m2(3);
+//		obj3.m1();
+//		obj3.m2(3);
 	}
 	static void go(Brad221 obj) {
 		obj.m1();

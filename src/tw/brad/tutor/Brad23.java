@@ -5,9 +5,9 @@ public class Brad23 {
 		Brad231 obj1 = new Brad231();
 		Brad231 obj2 = new Brad231();
 		Brad231 obj3 = new Brad231();
-//		obj1.m1();
+		obj1.m1();
 		
-		//Brad231.m2();
+		Brad231.m2();
 		System.out.println(Brad231.i);
 		System.out.println(obj1.j);
 	}

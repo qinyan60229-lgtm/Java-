@@ -5,19 +5,28 @@ public class Brad24 {
 	public static void main(String[] args) {
 		Brad241 obj1 = new Brad244();
 		Brad241 obj2 = new Brad241() {
+
 			@Override
 			public void m1() {
-				System.out.println("Brad241:m1()");
+				// TODO Auto-generated method stub
+				
 			}
+
 			@Override
 			public void m2() {
-				System.out.println("Brad241:m1()");
+				// TODO Auto-generated method stub
+				
 			}
 		};
 		obj2.m1();
 		obj2.m2();
+		obj1.m2();
 	}
 
+}
+class Dog implements Brad241 {
+    public void m1() {System.out.println("hello");}
+    public void m2() {System.out.println("hello");}
 }
 interface Brad241 {
 	void m1();
