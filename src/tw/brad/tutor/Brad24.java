@@ -4,6 +4,7 @@ public class Brad24 {
 
 	public static void main(String[] args) {
 		Brad241 obj1 = new Brad244();
+		Brad241 obj = new Dog();
 		Brad241 obj2 = new Brad241() {
 
 			@Override
