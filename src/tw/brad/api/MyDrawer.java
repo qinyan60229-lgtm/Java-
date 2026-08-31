@@ -14,10 +14,11 @@ import javax.swing.DebugGraphics;
 import javax.swing.JPanel;
 
 public class MyDrawer extends JPanel {
-	private ArrayList<Line> lines;
+	private ArrayList<Line> lines, recycler;
 	
 	public MyDrawer() {
 		lines = new ArrayList<>();
+		recycler = new ArrayList<>();
 		
 		setBackground(Color.GRAY);
 
@@ -52,10 +53,32 @@ public class MyDrawer extends JPanel {
 		
 
 	}
+	public void clear() {
+		recycler.clear();
+		lines.clear();
+		repaint();
+	}
+	public void undo() {
+		if(lines.size()>0) {
+			recycler.add (lines.removeLast());
+			repaint();
+		}
+	}
+	public void redo() {
+		if(recycler.size()>0) {
+			lines.add (recycler.removeLast());
+			repaint();
+		}
+	}
+//	public void red() {
+//		lines.get();
+//		repaint();
+//	}
 
 	private class MyListener extends MouseAdapter {
 		@Override
 		public void mousePressed(MouseEvent e) {
+			recycler.clear();
 			Line line = new Line(Color.BLUE);
 			line.addPoint(e.getX(), e.getY());
 			lines.add(line);
