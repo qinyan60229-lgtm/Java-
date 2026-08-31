@@ -1,11 +1,13 @@
 package tw.brad.tutor;
 
 import java.awt.BorderLayout;
+import java.awt.Color;
 import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
+import javax.swing.JColorChooser;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
@@ -13,7 +15,7 @@ import tw.brad.api.MyDrawer;
 
 public class MySign extends JFrame {
 	private MyDrawer myDrawer;
-	private JButton clear, undo, redo, red;
+	private JButton clear, undo, redo, color;
 	
 	public MySign() {
 		
@@ -26,7 +28,7 @@ public class MySign extends JFrame {
 		clear = new JButton("Clear"); top.add(clear);
 		undo = new JButton("Undo"); top.add(undo);
 		redo = new JButton("Redo"); top.add(redo);
-		red = new JButton("Red"); top.add(red);
+		color = new JButton("Color"); top.add(color);
 		
 		add(top, BorderLayout.NORTH);
 		
@@ -56,13 +58,20 @@ public class MySign extends JFrame {
 				myDrawer.redo();
 			}
 		});
-		red.addActionListener(new ActionListener() {
+		color.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				
+				changeColor();
 			}
 		});
 	}
+	private void changeColor() {
+		Color newColor = JColorChooser.showDialog(this, "Change Color", myDrawer.getColor());
+		if (newColor != null) {
+			myDrawer.setColor(newColor);
+		}
+	}
+	
 	public static void main(String[] args) {
 		new MySign();
 

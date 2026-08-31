@@ -15,12 +15,15 @@ import javax.swing.JPanel;
 
 public class MyDrawer extends JPanel {
 	private ArrayList<Line> lines, recycler;
+	private Color nowColor;
+	
 	
 	public MyDrawer() {
 		lines = new ArrayList<>();
 		recycler = new ArrayList<>();
 		
 		setBackground(Color.GRAY);
+		nowColor = Color.BLUE;
 
 		MyListener myListener = new MyListener();
 		addMouseListener(myListener);
@@ -41,9 +44,10 @@ public class MyDrawer extends JPanel {
 
 		Graphics2D g2d = (Graphics2D) g;
 		g2d.setStroke(new BasicStroke(4));
-		g2d.setColor(Color.BLUE);
+		
 		
 		for (Line line: lines) {
+			g2d.setColor(line.getColor());
 			for (int i = 1;i < line.getSize(); i++) {
 				g2d.drawLine(line.getX(i-1), line.getY(i-1),
 						line.getX(i), line.getY(i));
@@ -70,16 +74,18 @@ public class MyDrawer extends JPanel {
 			repaint();
 		}
 	}
-//	public void red() {
-//		lines.get();
-//		repaint();
-//	}
+	public Color getColor() {
+		return nowColor;
+	}
+	public void setColor(Color color) {
+		nowColor = color;
+	}
 
 	private class MyListener extends MouseAdapter {
 		@Override
 		public void mousePressed(MouseEvent e) {
 			recycler.clear();
-			Line line = new Line(Color.BLUE);
+			Line line = new Line(nowColor);
 			line.addPoint(e.getX(), e.getY());
 			lines.add(line);
 		}
