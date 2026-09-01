@@ -1,0 +1,21 @@
+package tw.brad.tutor;
+
+import java.io.FileReader;
+
+public class Brad41 {
+    public static void main(String[] args) {
+        try {
+            FileReader reader = new FileReader("dir1/file2.text");
+
+            int c;
+            while ((c = reader.read()) != -1) {
+                System.out.println((char)c);
+            }
+
+            reader.close();
+
+        } catch (Exception e) {
+            System.out.println("讀取失敗");
+        }
+    }
+}

@@ -1,19 +1,20 @@
 package tw.brad.api;
-// scooter把bike發揚光大
-public class Scooter extends Bike {
+
+public class Scooter extends Bike{
 	private int gear;
-	
+
 	public Scooter(){
 		super("green");
 		System.out.println("Scooter()");
 	}
 	
-	@Override
-	public void upSpeed() {
-//		super.upSpeed();
-		speed = speed < 1? 1:speed * 1.8 * gear;
-	}
 	
+	@Override
+	public Scooter upSpeed() {
+		//super.upSpeed();
+		speed = speed < 1? 1: speed*1.8 * gear;
+		return this;
+	}
 	
 	public void changeGear(int gear) {
 		if (gear >= 0 && gear <= 4) {
