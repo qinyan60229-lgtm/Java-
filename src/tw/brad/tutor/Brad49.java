@@ -12,7 +12,7 @@ public class Brad49 {
 				DatagramPacket packet = new DatagramPacket(buf, buf.length);
 				socket.receive(packet);
 
-				String urIP = packet.getAddress().getHostAddress();
+				String urIP = packet.getAddress().getHostAddress();  //ex:urIP = "192.168.1.100"
 				int len = packet.getLength();
 				byte[] data = packet.getData();
 				String mesg = new String(data, 0, len);
