@@ -10,7 +10,7 @@ public class Brad49 {
 			byte[] buf = new byte[1024]; // 000000....
 			try (DatagramSocket socket = new DatagramSocket(8888);) {
 				DatagramPacket packet = new DatagramPacket(buf, buf.length);
-				socket.receive(packet);
+				socket.receive(packet);  //程式停在這裡等，直到真的收到一個 UDP 封包。
 
 				String urIP = packet.getAddress().getHostAddress();  //ex:urIP = "192.168.1.100"
 				int len = packet.getLength();
